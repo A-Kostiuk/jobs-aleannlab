@@ -40,6 +40,7 @@ const jobsSlice = createSlice({
         const {itemsPerPage, allJobs} = state;
         const endOffset = itemOffset + itemsPerPage;
         state.currentJobs = allJobs.slice(itemOffset, endOffset);
+        state.itemOffset = itemOffset;
       },
       setJobsLocationDetails(state, action: PayloadAction<LocationDetails[]>) {
         state.allJobs = state.allJobs.map((job, index) => ({...job, locationDetails: action.payload[index]}));

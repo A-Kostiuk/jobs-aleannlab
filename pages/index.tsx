@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import { wrapper } from '../store';
-import { fetchAllJobs, setJobsLocationDetails } from '../store/jobs-slice/jobs-slice';
+import { fetchAllJobs, setCurrentJobs, setJobsLocationDetails } from '../store/jobs-slice/jobs-slice';
 import HomePageWrapper from '../components/layouts/home-page-wrapper/home-page-wrapper';
 import { useCustomDispatch, useCustomSelector } from '../hooks/store';
 import { selectJobs } from '../store/selectors';
@@ -12,7 +12,7 @@ import { geoapifyApi } from '../axios/geoapify-api';
 
 const Home: NextPage = () => {
   const dispatch = useCustomDispatch();
-  const {currentJobs, allJobs} = useCustomSelector(selectJobs);
+  const {currentJobs, allJobs, itemOffset} = useCustomSelector(selectJobs);
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -32,7 +32,6 @@ const Home: NextPage = () => {
       fetchLocation();
     }
   }, [allJobs, dispatch]);
-
 
   return (
     <HomePageWrapper>
