@@ -12,7 +12,7 @@ import { geoapifyApi } from '../axios/geoapify-api';
 
 const Home: NextPage = () => {
   const dispatch = useCustomDispatch();
-  const {currentJobs, allJobs, itemOffset} = useCustomSelector(selectJobs);
+  const {currentJobs, allJobs} = useCustomSelector(selectJobs);
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -33,11 +33,6 @@ const Home: NextPage = () => {
     }
   }, [allJobs, dispatch]);
 
-  useEffect(() => {
-    dispatch(setCurrentJobs(itemOffset));
-  }, [dispatch]);
-
-
   return (
     <HomePageWrapper>
       <Head><title>Job board</title></Head>
@@ -54,7 +49,9 @@ const Home: NextPage = () => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(state => async () => {
+  const itemOffset = state.getState().jobs.itemOffset;
   await state.dispatch(fetchAllJobs());
+  state.dispatch(setCurrentJobs(itemOffset));
   return {
     props: {},
   };
