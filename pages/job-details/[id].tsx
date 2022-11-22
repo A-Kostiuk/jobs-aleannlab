@@ -1,4 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import { wrapper } from '../../store';
 import { fetchAllJobs, setSelectJob } from '../../store/jobs-slice/jobs-slice';
 
@@ -27,11 +28,18 @@ const Id: NextPage = () => {
       responsibilities,
       benefits,
       employment_type,
-      compensation_benefits, pictures, name, address, email, phone, location,
+      compensation_benefits,
+      pictures,
+      name,
+      address,
+      email,
+      phone,
+      location,
     } = job;
     return (
       <section
         className="container mx-auto px-[15px] pt-[24px] pb-[37px] lg:pt-[56px] lg:pb-[162px] lg:px-[70px] xl:grid xl:grid-cols-[1fr,_400px] xl:gap-[135px]">
+        <Head><title>{name}</title></Head>
         <div className="mb-[63px] xl:mb-0">
           <JobDetailsHeader />
           <div

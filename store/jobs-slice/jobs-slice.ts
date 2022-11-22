@@ -13,7 +13,7 @@ interface Jobs {
 const initialState: Jobs = {
   allJobs: [],
   itemOffset: 0,
-  itemsPerPage: 5,
+  itemsPerPage: 15,
   currentJobs: [],
   selectJob: null,
 };

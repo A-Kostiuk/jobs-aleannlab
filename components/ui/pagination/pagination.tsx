@@ -11,7 +11,7 @@ const Pagination: FC = () => {
 
   useEffect(() => {
     dispatch(setCurrentJobs(itemOffset));
-  }, [dispatch]);
+  }, [dispatch, itemOffset]);
 
 
   const pageCount = Math.ceil(allJobs.length / itemsPerPage);

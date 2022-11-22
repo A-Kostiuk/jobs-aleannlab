@@ -1,4 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import { wrapper } from '../store';
 import { fetchAllJobs, setJobsLocationDetails } from '../store/jobs-slice/jobs-slice';
 import HomePageWrapper from '../components/layouts/home-page-wrapper/home-page-wrapper';
@@ -30,11 +31,12 @@ const Home: NextPage = () => {
     if (allJobs.length) {
       fetchLocation();
     }
-  }, []);
+  }, [allJobs, dispatch]);
 
 
   return (
     <HomePageWrapper>
+      <Head><title>Job board</title></Head>
       <div
         className="container mx-auto p-[9px] lg:pt-[29px] lg:pb-[64px] lg:px-0 grid grid-rows-[1fr_min-content] min-h-screen">
         <h1 className="sr-only">Job board</h1>
