@@ -33,6 +33,11 @@ const Home: NextPage = () => {
     }
   }, [allJobs, dispatch]);
 
+  useEffect(() => {
+    dispatch(setCurrentJobs(itemOffset));
+  }, [dispatch]);
+
+
   return (
     <HomePageWrapper>
       <Head><title>Job board</title></Head>
