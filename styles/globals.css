@@ -1,26 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: local('Proxima Nova'),
+    url('../fonts/ProximaNova-Light.ttf') format('truetype'),
+    url('../fonts/ProximaNova-Light.woff') format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: local('Proxima Nova'),
+    url('../fonts/ProximaNova-Regular.ttf') format('truetype'),
+    url('../fonts/ProximaNova-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: local('Proxima Nova'),
+    url('../fonts/ProximaNova-Semibold.ttf') format('truetype'),
+    url('../fonts/ProximaNova-Semibold.woff') format('woff');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: local('Proxima Nova'),
+    url('../fonts/ProximaNova-Bold.ttf') format('truetype'),
+    url('../fonts/ProximaNova-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'),
+    url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 500;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: 'Proxima Nova', Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+*, ::after, ::before {
+    box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.my-swiper .swiper-slide {
+    @apply w-[200px] h-[116px] bg-imgBg rounded-base overflow-hidden relative;
 }
