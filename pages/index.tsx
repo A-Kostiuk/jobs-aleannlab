@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         }
       }, 3000);
     };
-    if (allJobs.length) {
+    if (allJobs.length && (!!allJobs[0].locationDetails?.name || !!allJobs[0].locationDetails?.country)) {
       fetchLocation();
     }
   }, [allJobs, dispatch]);
